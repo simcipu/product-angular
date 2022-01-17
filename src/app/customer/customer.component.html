@@ -1,0 +1,29 @@
+<h1>
+  Angular HTTP Service Example
+</h1>
+
+<table class="table table-striped table-dark">
+  <thead>
+    <tr>
+      <th>Company</th>
+      <th>Name</th>
+      <th>Surname</th>
+     
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let emp of customer">
+      <td>{{ emp.company }}</td>
+      <td>{{ emp.name }}</td>
+      <td>{{ emp.surname }}</td>
+      
+    </tr>
+  
+</tbody>
+<tr><button class="btn btn-link" (click)="comeBack()">COME BACK</button></tr>
+</table>
+
+
+
+
+

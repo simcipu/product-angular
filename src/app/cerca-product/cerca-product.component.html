@@ -1,0 +1,51 @@
+<p>new-product works!</p>
+
+<p>new-product works!</p>
+
+
+<p>cerca per surname o per type</p>
+<div class="container">
+<form #f="ngForm">
+    <div class="container">
+
+    <div class="form-row">
+      <div class="form-group col-sm-6">
+
+        <label for="surname customer">cerca per surname</label>
+        <input [(ngModel)]="surname" #serialNumber="ngModel" class="form-control" name="surnameCustomer">
+
+        <label for="type">cerca per type</label>
+        <input  [(ngModel)]="type" class="form-control" name="type" >
+        <td></td>
+        <td><button class="btn btn-success" (click)="cerca(surname,type)">cerca</button></td>
+    </div>
+
+    </div>
+    <div *ngIf="show">
+    <table class="table table-striped table-dark">
+        <thead>
+          <tr>
+            <th scope="col">Serial Number</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Customers</th>
+          </tr>
+        </thead>
+        <tbody>
+         
+            
+            <tr *ngFor="let emp of product">
+             
+              <td>{{ emp.serialNumber }}</td>
+              <td>{{ emp.name }}</td>
+              <td>{{ emp.type }}</td>
+             <td><button class="btn btn-link" (click)="open(emp.serialNumber)">Show Customer</button></td>
+       
+            </tr>
+        </tbody>
+      </table>
+    </div>
+   
+</div>
+  </form>
+</div>

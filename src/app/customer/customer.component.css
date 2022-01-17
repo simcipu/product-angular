@@ -1,0 +1,13 @@
+.parent{
+    background:#fff;
+    text-align:center;
+    }
+    
+    .parent a {
+    text-decoration: none;
+    background: #333;
+    border-radius: 3px;
+    color: #fff;
+    padding: 5px 8px;
+    margin-right:6px;
+    }
