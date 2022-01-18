@@ -34,3 +34,20 @@
     font-weight: 600;
     text-decoration: none;
 }
+.login-button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+justify-content: center;
+ align-items: center;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.button2 {
+    justify-content: center;
+     align-items: center;
+    font-size: 12px;}

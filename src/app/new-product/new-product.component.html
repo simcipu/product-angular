@@ -1,19 +1,14 @@
-<p>new-product works!</p>
 
-<p>new-product works!</p>
-
-
-<p></p>
 <form #f="ngForm">
-    <div class="container">
+    <div class="container prod-container">
 
     <div class="form-row">
       <div class="form-group col-sm-6">
-        <label for="serialNumber">serial number</label>
-        <input [(ngModel)]="prod.serialNumber" #serialNumber="ngModel" class="form-control" name="serialNumber">
+        <label for="serialNumber" >serial number</label>
+        <input [(ngModel)]="prod.serialNumber" class="form-control" #serialNumber="ngModel" class="form-control" name="serialNumber">
 
         <label for="type">type</label>
-        <input  [(ngModel)]="prod.type" class="form-control" name="type" >
+        <input  [(ngModel)]="prod.type"  class="form-control" name="type" >
 
         <label for="name">name</label>
         <input [(ngModel)]="prod.name" class="form-control" name="name" >
@@ -27,14 +22,16 @@
                 <input [(ngModel)]="cust.company" class="form-control" name="company">
             </div>
         </div>
+            <div>
+              <button (click)="comeBack()" class="prod-button button2">Indietro</button>
+              <button class="prod-button button2" (click)="saveProduct()">Salva</button>
+              <button class="prod-button button2" (click)="reset()">Pulisci</button>
+              <button class="prod-button button2" (click)="gotoNewCustmer()">Aggiungi Cliente</button>
+            </div>
     </div>
+ 
     </div>
-    <div class="form-group form-footer text-center">
-      <button (click)="comeBack()" class="btn btn-primary">BACK</button>
-      <button  class="btn btn-success" (click)="saveProduct()"> SAVE</button>
-      <button  class="btn btn-primary" (click)="reset()"> RESET</button>
-      <button  class="btn btn-primary" (click)="gotoNewCustmer()"> Add Castumer</button>
-    </div>
+  
 </div>
   </form>
   
