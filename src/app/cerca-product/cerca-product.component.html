@@ -12,7 +12,7 @@
         <label for="type">cerca per type</label>
         <input  [(ngModel)]="type" class="form-control" name="type" >
         <td></td>
-        <td><button class="prod-button button2" (click)="cerca(surname,type)">cerca</button></td>
+        <td><button type="button" class="btn btn-info" (click)="cerca(surname,type)">cerca</button></td>
     </div>
 
     </div>
@@ -39,7 +39,7 @@
             <td>{{ emp.serialNumber }}</td>
             <td>{{ emp.name }}</td>
             <td>{{ emp.type }}</td>
-            <td><button class="prod-button button2" (click)="open(emp.serialNumber)">Mostra Clienti</button></td>
+            <td><button type="button" class="btn btn-info" (click)="open(emp.serialNumber)">Mostra Clienti</button></td>
     
           </tr>
         </tbody>
