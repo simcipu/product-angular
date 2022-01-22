@@ -43,9 +43,11 @@ this.service.save(this.prod).subscribe(param=> console.log(param));
    this.show=true;
    if(this.cust.name!=''){
  this.prod.customer.push(this.cust);
+     console.log(this.cust);
    }
    console.log(this.prod);
    this.cust=new Customer();
+   
   }
 
   OnDestroy(){

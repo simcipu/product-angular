@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import {Product} from "../classes/Product";
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 
 
 @Injectable({
@@ -57,4 +57,11 @@ export class ProductService {
  
     return this.http.get<Product[]>(this.urlsurname+'/'+surname);
   }
+
+  handleError(error: HttpErrorResponse) {
+    console.log("lalalalalalalala");
+    return throwError(error);
+  }
+
+  
 }

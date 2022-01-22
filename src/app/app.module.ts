@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,8 +15,8 @@ import { CercaProductComponent } from './cerca-product/cerca-product.component';
 import { LoginComponent } from './login/login.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
+import { ExceInterceptor } from './services/exce.interceptor';
 import { ErrorInterceptor } from './services/error.interceptor';
-import { TokenExpComponent } from './token-exp/token-exp.component';
 
 
 
@@ -30,8 +30,7 @@ import { TokenExpComponent } from './token-exp/token-exp.component';
     UpdateProductComponent,
     CercaProductComponent,
     LoginComponent,
-    ForbiddenComponent,
-    TokenExpComponent
+    ForbiddenComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +41,7 @@ import { TokenExpComponent } from './token-exp/token-exp.component';
     BrowserAnimationsModule
   ],
   providers: [
+
     {
       provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true
      
