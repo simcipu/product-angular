@@ -58,10 +58,5 @@ export class ProductService {
     return this.http.get<Product[]>(this.urlsurname+'/'+surname);
   }
 
-  handleError(error: HttpErrorResponse) {
-    console.log("lalalalalalalala");
-    return throwError(error);
-  }
-
   
 }

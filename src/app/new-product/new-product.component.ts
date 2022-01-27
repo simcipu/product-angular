@@ -14,6 +14,7 @@ export class NewProductComponent implements OnInit {
   customer=new Array<Customer>();
   cust!:Customer;
   prod!:Product;
+  dismissible:boolean = false;
   constructor(private service:ProductService,private router: Router) { }
   show!:boolean;
   ngOnInit(): void {
@@ -26,7 +27,7 @@ export class NewProductComponent implements OnInit {
     if(this.cust.name!=''){
       this.prod.customer.push(this.cust);
         }
-this.service.save(this.prod).subscribe(param=> console.log(param));
+    this.service.save(this.prod).subscribe(param => { return param });
   }
 
   comeBack():void{

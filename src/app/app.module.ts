@@ -15,7 +15,6 @@ import { CercaProductComponent } from './cerca-product/cerca-product.component';
 import { LoginComponent } from './login/login.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
-import { ExceInterceptor } from './services/exce.interceptor';
 import { ErrorInterceptor } from './services/error.interceptor';
 
 
@@ -41,7 +40,6 @@ import { ErrorInterceptor } from './services/error.interceptor';
     BrowserAnimationsModule
   ],
   providers: [
-
     {
       provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true
      
