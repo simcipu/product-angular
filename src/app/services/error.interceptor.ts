@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, last } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { Errors } from "../classes/Errors";
 
@@ -30,8 +30,7 @@ export class ErrorInterceptor implements HttpInterceptor {
             console.error(this.errors.errors[0]);
 
             if (this.errors.errors[0]){
-
-               
+                window.alert(this.errors.errors[0])
             }
             return throwError(error);
         }))
