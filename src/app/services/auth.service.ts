@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { JwtTokenRequest } from "../classes/JwtTokenRequest";
 import { JwtTokenResponse } from "../classes/JwtTokenResponse";
+import { Utenti } from '../classes/Utenti';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ import { JwtTokenResponse } from "../classes/JwtTokenResponse";
 export class AuthService {
   private urlauth = 'http://localhost:8090/auth';
   private urlauthvalidate = 'http://localhost:8090/auth/validate';
+  private urlauthUser = 'http://localhost:8090/auth/userid';
   constructor(private http: HttpClient) { }
 
   public getUtente(jwtTokenRequest: JwtTokenRequest): Observable<JwtTokenResponse> {
@@ -33,6 +35,11 @@ export class AuthService {
       return "";
   }
 
+  getUser(id:string) {
+
+    return this.http.get<Utenti>(this.urlauthUser + '/' + id);
+
+  }
   public validateToken(username:string,token:string): Observable<Boolean>{
 
     return this.http.get<Boolean>(this.urlauthvalidate + '/' + username+"/"+token);
