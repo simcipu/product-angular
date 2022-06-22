@@ -3,7 +3,7 @@
     <div class="container prod-container">
 
     <div class="form-row">
-      <div class="form-group col-sm-6">
+      <div class="form-group col-sm-4">
         <label for="serialNumber" >serial number</label>
         <input [(ngModel)]="prod.serialNumber" class="form-control" #serialNumber="ngModel" class="form-control" name="serialNumber">
 
@@ -24,10 +24,10 @@
         </div>
         <p></p>
             <div>
-              <button type="button" class="btn btn-info" style="margin:5px;" (click)="comeBack()">Indietro</button>
-              <button type="button" class="btn btn-info" style="margin:5px;" (click)="saveProduct()">Salva</button>
-              <button type="button" class="btn btn-info" style="margin:5px;" (click)="reset()">Pulisci</button>
-              <button type="button" class="btn btn-info" style="margin:5px;" (click)="gotoNewCustmer()">Aggiungi Cliente</button>
+              <button type="button" class="btn btn-info" style="margin:5px;" (click)="comeBack()">Back</button>
+              <button type="button" class="btn btn-info" style="margin:5px;" (click)="reset()">Clean</button>
+              <button type="button" class="btn btn-info" style="margin:5px;" (click)="saveProduct()">Save</button>
+              <button type="button" class="btn btn-info" style="margin:5px;" (click)="gotoNewCustmer()">Add Customer</button>
             </div>
     </div>
  

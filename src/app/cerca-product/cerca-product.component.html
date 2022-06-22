@@ -4,16 +4,16 @@
     <div class="container">
 
     <div class="form-row">
-      <div class="form-group col-sm-6">
+      <div class="form-group col-sm-4">
 
-        <label for="surname customer">cerca per surname</label>
+        <label for="surname customer">Search for Surname</label>
         <input [(ngModel)]="surname" #serialNumber="ngModel" class="form-control" name="surnameCustomer">
 
-        <label for="type">cerca per type</label>
+        <label for="type">Search for type</label>
         <input  [(ngModel)]="type" class="form-control" name="type" >
         <td></td>
         <p></p>
-        <td><button type="button" class="btn btn-info" (click)="cerca(surname,type)">cerca</button></td>
+        <td><button type="button" class="btn btn-info" (click)="cerca(surname,type)">Search</button></td>
     </div>
 
     </div>
@@ -27,8 +27,8 @@
         <thead>
           <tr>
             <th scope="col">Serial Number</th>
-            <th scope="col">Nome</th>
-            <th scope="col">Tipo</th>
+            <th scope="col">Name</th>
+            <th scope="col">Type</th>
             <th scope="col">Customers</th>
           </tr>
         </thead>
@@ -40,8 +40,7 @@
             <td>{{ emp.serialNumber }}</td>
             <td>{{ emp.name }}</td>
             <td>{{ emp.type }}</td>
-                <p></p>
-            <td><button type="button" class="btn btn-info" (click)="open(emp.serialNumber)">Mostra Clienti</button></td>
+            <td><button type="button" class="btn btn-info" (click)="open(emp.serialNumber)">Show</button></td>
     
           </tr>
         </tbody>
