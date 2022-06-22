@@ -75,7 +75,9 @@ this.show=false;
           });
   }
 
-
+  open(id:string) {
+    this.router.navigate(['customer', id]);
+  }
   updateProduct():void{
 
     this.service.update(this.prod).subscribe(param=> console.log(param));

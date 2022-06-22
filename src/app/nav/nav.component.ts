@@ -29,9 +29,8 @@ export class NavComponent implements OnInit {
 
   logout(): void {
   
-    sessionStorage.removeItem("Utente");
-    sessionStorage.removeItem("AuthToken");
     this.router.navigate(['login']);
+
 
   }
 

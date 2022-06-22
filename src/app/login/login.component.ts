@@ -17,7 +17,10 @@ export class LoginComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
+
     this.jwtTokenRequest =new JwtTokenRequest('','');
+    sessionStorage.removeItem("Utente");
+    sessionStorage.removeItem("AuthToken");
   }
 
 

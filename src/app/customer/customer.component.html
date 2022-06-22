@@ -5,7 +5,8 @@
       <th>Company</th>
       <th>Name</th>
       <th>Surname</th>
-     
+      <th>Serial Number Product</th>
+      <th>Elimina</th>
     </tr>
   </thead>
   <tbody>
@@ -13,14 +14,27 @@
       <td>{{ emp.company }}</td>
       <td>{{ emp.name }}</td>
       <td>{{ emp.surname }}</td>
-      
+      <th>{{serialNumber}}</th>
+      <td><button type="button" class="btn btn-info" style="margin:5px;" (click)="delete(emp.surname)">Elimina</button></td>
     </tr>
   
 </tbody>
-
+<div *ngIf="show">
+  <div class="form-group col-sm-6">
+    <label for="surname">surname</label>
+    <input  [(ngModel)]="cust.surname" class="form-control" name="surname" >
+    <label for="nome">nome</label>
+    <input [(ngModel)]="cust.name"  class="form-control" name="nome">
+    <label for="company">company</label>
+    <input [(ngModel)]="cust.company" class="form-control" name="company">
+</div>
+</div>
 </table>
     <p></p>
 <tr><button type="button" class="btn btn-info" (click)="comeBack()">Indietro</button></tr>
+<button type="button" class="btn btn-info" style="margin:5px;" (click)="gotoNewCustmer()">Aggiungi Cliente</button>
+<button type="button" class="btn btn-info" style="margin:5px;" (click)="reset()">Pulisci</button>
+<button type="button" class="btn btn-info" style="margin:5px;" (click)="saveProduct()">Salva</button>
 
 
 
