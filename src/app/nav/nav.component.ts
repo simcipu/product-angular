@@ -22,11 +22,6 @@ export class NavComponent implements OnInit {
     this.router.navigate(['cerca']);
   }
 
-  login(){
-
-    this.router.navigate(['login']);
-  }
-
   logout(): void {
   
     this.router.navigate(['login']);
