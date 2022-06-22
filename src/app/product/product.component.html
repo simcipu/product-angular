@@ -3,11 +3,11 @@
     <thead >
       <tr>
         <th scope="col">Serial Number</th>
-        <th scope="col">Tipo</th>
-        <th scope="col">Nome</th>
-        <th scope="col">Cliente</th>
-        <th scope="col">Elimina</th>
-        <th scope="col">Modifica</th>
+        <th scope="col">Type</th>
+        <th scope="col">Name</th>
+        <th scope="col">Customer</th>
+        <th scope="col">Delete</th>
+        <th scope="col">Update</th>
       </tr>
     </thead>
     <tbody>
@@ -19,9 +19,9 @@
           <td>{{ emp.type }}</td>
           <td>{{ emp.name }}</td>
         
-         <td><button type="button" class="btn btn-info" style="margin:5px;" (click)="open(emp.serialNumber)">Mostra Cliente</button></td>
-         <td><button type="button" class="btn btn-info" style="margin:5px;" (click)="delete(emp.serialNumber)">Elimina</button></td>
-         <td><button type="button" class="btn btn-info" style="margin:5px;" (click)="modifica(emp.serialNumber)">Modifica</button></td>
+         <td><button type="button" class="btn btn-info" style="margin:5px;" (click)="open(emp.serialNumber)">Show</button></td>
+         <td><button type="button" class="btn btn-info" style="margin:5px;" (click)="delete(emp.serialNumber)">Delete</button></td>
+         <td><button type="button" class="btn btn-info" style="margin:5px;" (click)="modifica(emp.serialNumber)">Update</button></td>
         </tr>
     </tbody>
   </table>

@@ -6,7 +6,7 @@
       <th>Name</th>
       <th>Surname</th>
       <th>Serial Number Product</th>
-      <th>Elimina</th>
+      <th>Delete</th>
     </tr>
   </thead>
   <tbody>
@@ -15,7 +15,7 @@
       <td>{{ emp.name }}</td>
       <td>{{ emp.surname }}</td>
       <th>{{serialNumber}}</th>
-      <td><button type="button" class="btn btn-info" style="margin:5px;" (click)="delete(emp.surname)">Elimina</button></td>
+      <td><button type="button" class="btn btn-info" style="margin:5px;" (click)="delete(emp.surname)">Delete</button></td>
     </tr>
   
 </tbody>
@@ -23,7 +23,7 @@
   <div class="form-group col-sm-6">
     <label for="surname">surname</label>
     <input  [(ngModel)]="cust.surname" class="form-control" name="surname" >
-    <label for="nome">nome</label>
+    <label for="nome">name</label>
     <input [(ngModel)]="cust.name"  class="form-control" name="nome">
     <label for="company">company</label>
     <input [(ngModel)]="cust.company" class="form-control" name="company">
@@ -31,10 +31,10 @@
 </div>
 </table>
     <p></p>
-<tr><button type="button" class="btn btn-info" (click)="comeBack()">Indietro</button></tr>
-<button type="button" class="btn btn-info" style="margin:5px;" (click)="gotoNewCustmer()">Aggiungi Cliente</button>
-<button type="button" class="btn btn-info" style="margin:5px;" (click)="reset()">Pulisci</button>
-<button type="button" class="btn btn-info" style="margin:5px;" (click)="saveProduct()">Salva</button>
+<tr><button type="button" class="btn btn-info" (click)="comeBack()">Back</button></tr>
+<button type="button" class="btn btn-info" style="margin:5px;" (click)="gotoNewCustmer()">Add Customer</button>
+<button type="button" class="btn btn-info" style="margin:5px;" (click)="reset()">Clean</button>
+<button type="button" class="btn btn-info" style="margin:5px;" (click)="saveProduct()">Save</button>
 
 
 
