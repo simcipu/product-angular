@@ -23,15 +23,12 @@ this.show=false;
     this.route.params.subscribe(params => {
    
       this.id=params['serialNumber'];
-     console.log(this.id);
  
     });
 
     this.service.getProductById(this.id).subscribe(response => 
       {
         this.prod = response;
-       
-        console.log(this.prod);
 
         if( this.prod.customer.length!=0&&this.prod.customer!=null){
           this.show=true;
@@ -55,7 +52,6 @@ this.show=false;
         this.route.params.subscribe(params => {
        
           this.id=params['serialNumber'];
-         console.log(this.id);
     
       /* */
      
@@ -80,7 +76,11 @@ this.show=false;
   }
   updateProduct():void{
 
-    this.service.update(this.prod).subscribe(param=> console.log(param));
+    this.service.update(this.prod).subscribe(param=> {
+      if(param){
+        window.alert("Update")
+      }
+    });
       }
 
 }

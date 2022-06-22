@@ -31,12 +31,9 @@ export class CustomerComponent implements OnInit {
     this.service.getProductById(this.id).subscribe(response => 
       {
         this.prod = response;
-       
-        console.log(this.prod);
 
         this.customer=  this.prod.customer;
         this.serialNumber = this.prod.serialNumber;
-        console.log(this.customer);
    
       });
      
@@ -56,31 +53,24 @@ export class CustomerComponent implements OnInit {
     this.show=true;
     if(this.cust.name!=''){
   this.prod.customer.push(this.cust);
-      console.log(this.cust);
-    
+
     }
  
-    
    }
 
    saveProduct():void{
-      this.service.update(this.prod).subscribe(param => { return param });
-    
+      this.service.update(this.prod).subscribe(param => { 
+        if(param){
+          window.alert("saved")
+        }
+        return param });
   }
 
-  delete(surname:string) {
+  delete(custumer:Customer) {
 
     if(this.prod?.customer){
-      this.prod.customer.forEach(c=>{
-
-        if(c.surname === surname){
-          const index = this.prod.customer.indexOf(c);
-          this.prod.customer.splice(index);
-      }
-    })
-
-    this.service.update(this.prod).subscribe(param => { return param });
-    window.location.reload();
+      const index =this.prod.customer.indexOf(custumer);
+      this.prod.customer.splice(index,1);
   }
 
 }

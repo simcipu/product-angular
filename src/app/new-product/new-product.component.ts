@@ -18,7 +18,6 @@ export class NewProductComponent implements OnInit {
   constructor(private service:ProductService,private router: Router) { }
   show!:boolean;
   ngOnInit(): void {
-  
   this.prod=new Product('','','',this.customer);
   this.cust=new Customer();
   }
@@ -27,7 +26,14 @@ export class NewProductComponent implements OnInit {
     if(this.cust.name!=''){
       this.prod.customer.push(this.cust);
         }
-    this.service.save(this.prod).subscribe(param => { return param });
+    this.service.save(this.prod).subscribe(param => {
+      if(param){
+        window.alert("saved")
+      }
+  return param;
+  
+    });
+   this.reset();
   }
 
   comeBack():void{
@@ -37,6 +43,7 @@ export class NewProductComponent implements OnInit {
 
   reset() {
     this.show=false;
+    
     window.location.reload();
   }
 
@@ -44,9 +51,8 @@ export class NewProductComponent implements OnInit {
    this.show=true;
    if(this.cust.name!=''){
  this.prod.customer.push(this.cust);
-     console.log(this.cust);
+ window.alert("Customer Added");
    }
-   console.log(this.prod);
    this.cust=new Customer();
    
   }
