@@ -33,9 +33,16 @@ validate!:boolean;
   save(request:RequestUser){
 console.log(this.request)
     this.authService.inserisciUser(this.request).subscribe(param =>{return param});
+ 
+  }
+  
+  reset(){
+    this.validate=false;
+    this.ruoliSelected =["ADMIN","USER"]
+    this.utente=new Utenti('','',',',[]);
+    this.request = new RequestUser('','',this.utente)
 
   }
-
 
   ngOnDestroy(): void {
 
@@ -50,7 +57,5 @@ if(ruoliSelected){
   })
   
 }
-
-console.log(this.request.utente?.ruoli)
 
 }}
