@@ -22,6 +22,13 @@ export class ErrorInterceptor implements HttpInterceptor {
                 this.route.navigate(['forbidden']);
             }
 
+            if ([406].includes(err.status)) {
+        
+                window.alert("error inserimento user")
+          
+                return throwError(err);
+            }
+
             let httpResponse :HttpErrorResponse;
             httpResponse =err;
             this.errors = httpResponse.error;

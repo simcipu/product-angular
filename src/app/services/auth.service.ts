@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { JwtTokenRequest } from "../classes/JwtTokenRequest";
@@ -43,8 +43,8 @@ export class AuthService {
 
   }
 
-inserisciUser(requestUser:RequestUser): Observable<Object>{
- return this.http.post<Object>(this.urlauthInserisci, requestUser);
+inserisciUser(requestUser:RequestUser): Observable<HttpResponse<any>>{
+ return this.http.post<HttpResponse<any>>(this.urlauthInserisci, requestUser);
 }
 
   public validateToken(username:string,token:string): Observable<Boolean>{

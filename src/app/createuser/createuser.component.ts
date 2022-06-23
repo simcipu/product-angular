@@ -17,8 +17,10 @@ ruoliSelected!:string[];
 request!:RequestUser;
 utente!:Utenti;
 ruoli!:string;
+validate!:boolean;
 
   ngOnInit(): void {
+    this.validate=false;
     this.ruoliSelected =["ADMIN","USER"]
     this.utente=new Utenti('','',',',[]);
     this.request = new RequestUser('','',this.utente)
@@ -36,7 +38,6 @@ console.log(this.request)
 
 
   ngOnDestroy(): void {
-
 
     this.authService.inserisciUser(this.request).subscribe().unsubscribe();
   }
