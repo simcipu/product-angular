@@ -1,0 +1,39 @@
+<form #f="ngForm">
+    <div class="container prod-container">
+
+    <div class="form-row">
+      <div class="form-group col-sm-4">
+        <label for="adminUser" >Admin User</label>
+        <input [(ngModel)]="request.adminUser" class="form-control" #adminUser="ngModel" class="form-control" name="adminUser">
+
+        <label for="adminPassword">Admin Password</label>
+        <input  [(ngModel)]="request.adminPassword"  class="form-control" name="adminPassword" >
+
+        <label for="User">userId</label>
+        <input [(ngModel)]="request.utente.userId" class="form-control" name="userId" >
+        <label for="Password">password</label>
+        <input [(ngModel)]="request.utente.password" class="form-control" name="password">
+        <label for="Attivo">attivo</label>
+        <select class="form-control" id="attivo" [(ngModel)]="request.utente.attivo" name="attivo">
+            <option value="Si">Si</option>
+            <option value="No">No</option>
+          </select>
+          <label for="Ruoli">ruoli</label>
+          <select class="form-control" id="select-meal-type" multiple="multiple" [(ngModel)]="ruoliSelected" name="ruoliSelected" (change)="selectRuoli(ruoliSelected)">
+            <option value="ADMIN">ADMIN</option>
+            <option value="USER">USER</option>
+        </select>
+    
+        <p></p>
+            <div>
+              <button type="button" class="btn btn-info" style="margin:5px;" (click)="comeBack()">Back</button>
+              <button type="button" class="btn btn-info" style="margin:5px;" (click)="save(request)">Create User</button>
+            </div>
+    </div>
+ 
+    </div>
+
+  
+</div>
+  </form>
+  

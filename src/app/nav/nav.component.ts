@@ -25,8 +25,11 @@ export class NavComponent implements OnInit {
   logout(): void {
   
     this.router.navigate(['login']);
+  }
 
-
+  createUser(): void {
+  
+    this.router.navigate(['createUser']);
   }
 
 }

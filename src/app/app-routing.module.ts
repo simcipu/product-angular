@@ -8,6 +8,7 @@ import { CercaProductComponent } from './cerca-product/cerca-product.component';
 import { LoginComponent } from './login/login.component';
 import { RouteGuardService } from './services/route-guard.service';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
+import { CreateuserComponent } from './createuser/createuser.component';
 
 
 
@@ -19,6 +20,10 @@ const routes: Routes = [
   {
     path: 'forbidden',
     component: ForbiddenComponent
+  },
+  {
+    path: 'createUser',
+    component: CreateuserComponent
   },
   {
     path: 'product', canActivate: [RouteGuardService],
