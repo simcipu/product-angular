@@ -1,0 +1,33 @@
+<table class="table table-bordered">
+    <thead >
+      <tr>
+        <th scope="col">User Id</th>
+        <th scope="col">attivo</th>
+        <th scope="col">ruoli</th>
+        <th scope="col">update</th>
+        <th scope="col">delete</th>
+      </tr>
+    </thead>
+    <tbody>
+     
+        
+        <tr *ngFor="let emp of utenti">
+         
+          <td>{{ emp.userId }}</td>
+          <td>{{ emp.attivo }}</td>
+          <td>{{ emp.ruoli }}</td>
+
+          <td> <button type="button" style="margin:5px;" class="btn btn-info" (click)="update(emp.userId)"> Update</button></td>
+          <td> <button type="button" style="margin:5px;" class="btn btn-info" (click)="delete()" >Delete</button></td>
+        
+        </tr>
+        <div class="form-group form-footer text-center">
+            <button type="button" style="margin:5px;" class="btn btn-info" (click)="comeBack()" >Back</button>
+
+            
+            </div>
+    
+    </tbody>
+  </table>
+
+

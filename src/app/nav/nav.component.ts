@@ -32,4 +32,9 @@ export class NavComponent implements OnInit {
     this.router.navigate(['createUser']);
   }
 
+  getUsers(): void {
+  
+    this.router.navigate(['utenti']);
+  }
+
 }

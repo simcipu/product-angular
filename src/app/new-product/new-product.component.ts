@@ -10,7 +10,7 @@ import { Customer } from '../classes/Customer';
   templateUrl: './new-product.component.html',
   styleUrls: ['./new-product.component.css']
 })
-export class NewProductComponent implements OnInit {
+export class NewProductComponent implements OnInit,OnDestroy {
   customer=new Array<Customer>();
   cust!:Customer;
   prod!:Product;
@@ -57,7 +57,7 @@ export class NewProductComponent implements OnInit {
    
   }
 
-  OnDestroy(){
+  ngOnDestroy(){
 
     this.service.save(this.prod).subscribe().unsubscribe();
   }

@@ -17,6 +17,8 @@ import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { ErrorInterceptor } from './services/error.interceptor';
 import { CreateuserComponent } from './createuser/createuser.component';
+import { UtentiComponent } from './utenti/utenti.component';
+import { UpdateutentiComponent } from './updateutenti/updateutenti.component';
 
 
 
@@ -31,7 +33,9 @@ import { CreateuserComponent } from './createuser/createuser.component';
     CercaProductComponent,
     LoginComponent,
     ForbiddenComponent,
-    CreateuserComponent
+    CreateuserComponent,
+    UtentiComponent,
+    UpdateutentiComponent
   ],
   imports: [
     BrowserModule,

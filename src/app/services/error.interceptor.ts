@@ -24,7 +24,7 @@ export class ErrorInterceptor implements HttpInterceptor {
 
             if ([406].includes(err.status)) {
         
-                window.alert("error inserimento user")
+                window.alert("error insert user")
           
                 return throwError(err);
             }

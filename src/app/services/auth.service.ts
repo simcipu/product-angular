@@ -14,6 +14,8 @@ export class AuthService {
   private urlauthvalidate = 'http://localhost:8090/auth/validate';
   private urlauthUser = 'http://localhost:8090/auth/userid';
   private urlauthInserisci = 'http://localhost:8090/auth/inserisci';
+  private urlauthUtenti = 'http://localhost:8090/auth/utenti';
+  private urlauthUtentiUpdate = 'http://localhost:8090/auth/update';
   constructor(private http: HttpClient) { }
 
   public getUtente(jwtTokenRequest: JwtTokenRequest): Observable<JwtTokenResponse> {
@@ -41,6 +43,15 @@ export class AuthService {
 
     return this.http.get<Utenti>(this.urlauthUser + '/' + id);
 
+  }
+
+  getUsers() {
+
+    return this.http.get<Utenti[]>(this.urlauthUtenti);
+  }
+
+  update(utenti:Utenti): Observable<HttpResponse<any>>{
+   return this.http.post<HttpResponse<any>>(this.urlauthUtentiUpdate, utenti);
   }
 
 inserisciUser(requestUser:RequestUser): Observable<HttpResponse<any>>{

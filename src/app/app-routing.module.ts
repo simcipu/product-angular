@@ -9,6 +9,8 @@ import { LoginComponent } from './login/login.component';
 import { RouteGuardService } from './services/route-guard.service';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { CreateuserComponent } from './createuser/createuser.component';
+import { UtentiComponent } from './utenti/utenti.component';
+import { UpdateutentiComponent } from './updateutenti/updateutenti.component';
 
 
 
@@ -24,6 +26,14 @@ const routes: Routes = [
   {
     path: 'createUser',
     component: CreateuserComponent
+  },
+  {
+    path: 'utenti',canActivate: [RouteGuardService],
+    component: UtentiComponent
+  },
+  {
+    path: 'updateutenti/:userId',canActivate: [RouteGuardService],
+    component: UpdateutentiComponent
   },
   {
     path: 'product', canActivate: [RouteGuardService],
