@@ -50,8 +50,8 @@ export class AuthService {
     return this.http.get<Utenti[]>(this.urlauthUtenti);
   }
 
-  update(utenti:Utenti): Observable<HttpResponse<any>>{
-   return this.http.post<HttpResponse<any>>(this.urlauthUtentiUpdate, utenti);
+  update(utenti:Utenti,change:boolean): Observable<HttpResponse<any>>{
+   return this.http.post<HttpResponse<any>>(this.urlauthUtentiUpdate+'/'+change, utenti);
   }
 
 inserisciUser(requestUser:RequestUser): Observable<HttpResponse<any>>{

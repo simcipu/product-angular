@@ -1,1 +1,31 @@
-<p>updateutenti works!</p>
+<form #f="ngForm">
+    <div class="container prod-container">
+
+    <div class="form-row">
+      <div class="form-group col-sm-4">
+
+        <label for="User">userId</label>
+        <input [(ngModel)]="utenti.userId" class="form-control" name="userId" required>
+        <label for="Attivo">attivo</label>
+        <select class="form-control" id="attivo" [(ngModel)]="utenti.attivo" name="attivo" required>
+            <option value="Si">Si</option>
+            <option value="No">No</option>
+          </select>
+          <label for="Ruoli">ruoli</label>
+          <select class="form-control" id="select-meal-type" multiple="multiple" [(ngModel)]="ruoliSelected" required name="ruoliSelected" (change)="selectRuoli(ruoliSelected)" >
+            <option value="ADMIN">ADMIN</option>
+            <option value="USER">USER</option>
+        </select>
+    
+        <p></p>
+            <div>
+              <button type="button" class="btn btn-info" style="margin:5px;" (click)="comeBack()">Back</button>
+              <button [disabled]="f.invalid" type="button" class="btn btn-info" style="margin:5px;" (click)="save(utenti)">Update User</button>
+            </div>
+    </div>
+ 
+    </div>
+
+</div>
+  </form>
+  
