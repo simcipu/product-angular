@@ -35,7 +35,11 @@ export class UtentiComponent implements OnInit,OnDestroy {
     this.router.navigate(['updateutenti',userId]);
   }
 
-  delete(){}
+  delete(id:string){
+    
+      this.authService.deleteUser(id).subscribe(param => {return param});
+      window.location.reload();
+    }
 
   reset() {
  
