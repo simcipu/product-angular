@@ -33,6 +33,7 @@ validate!:boolean;
   save(request:RequestUser){
 console.log(this.request)
     this.authService.inserisciUser(this.request).subscribe(param =>{return param});
+    window.alert("new user entered");
  
   }
   
