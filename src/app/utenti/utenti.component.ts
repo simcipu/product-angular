@@ -10,23 +10,38 @@ import { AuthService } from '../services/auth.service';
 })
 export class UtentiComponent implements OnInit,OnDestroy {
 
-  utenti= new Array<Utenti>();
+  utenti!:Utenti[];
+  ute!:Utenti;
+
   constructor(private authService:AuthService,private router: Router) { }
 
   ngOnInit(): void {
-    this.getUsers()
- 
-  }
-
-  getUsers(){
     this.authService.getUsers().subscribe(response =>{
 
       this.utenti = response;
-      console.log(this.utenti)
+      let utente = this.authService.loggedUser();
+  
+      if(utente){
+  
+       this.ute =JSON.parse(utente);
+       console.log(this.ute)
+        this.utenti.forEach(e => {
 
-     return this.utenti;
+          if(e.id === this.ute.id){
+           const index = this.utenti.indexOf(e)
+           this.utenti.splice(index,1)
+          
+          }
+        })
+  
+
+      }
+
+     return  this.utenti;
     })
-
+ 
+   
+ 
   }
 
   update(userId:string){

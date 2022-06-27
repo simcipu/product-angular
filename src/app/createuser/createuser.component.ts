@@ -22,7 +22,7 @@ validate!:boolean;
   ngOnInit(): void {
     this.validate=false;
     this.ruoliSelected =["ADMIN","USER"]
-    this.utente=new Utenti('','',',',[]);
+    this.utente=new Utenti('','','',',',[]);
     this.request = new RequestUser('','',this.utente)
   }
 
@@ -40,7 +40,7 @@ console.log(this.request)
   reset(){
     this.validate=false;
     this.ruoliSelected =["ADMIN","USER"]
-    this.utente=new Utenti('','',',',[]);
+    this.utente=new Utenti("",'','',',',[]);
     this.request = new RequestUser('','',this.utente)
 
   }

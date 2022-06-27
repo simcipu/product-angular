@@ -4,12 +4,14 @@
 
 export class Utenti {
 
+    id:string;
     userId: string;
     password: string;
     attivo: string;
     ruoli:string[];
 
-    constructor(userId: string, password: string,attivo: string,ruoli:[]) {
+    constructor(id:string,userId: string, password: string,attivo: string,ruoli:[]) {
+        this.id=id;
         this.userId = userId;
         this.password = password;
         this.attivo = attivo;
