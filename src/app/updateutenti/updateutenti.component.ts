@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { Utenti } from '../classes/Utenti';
 import { AuthService } from '../services/auth.service';
 
@@ -16,12 +17,18 @@ export class UpdateutentiComponent implements OnInit,OnDestroy {
   validate!:boolean;
   change!:boolean;
   newpass!:string;
+  subscription!: Subscription
+  subscription1!: Subscription
 
   constructor(private authService:AuthService,private route: ActivatedRoute,private router: Router) { }
 
   ngOnDestroy(): void {
-    this.authService.getUser(this.id).subscribe().unsubscribe();
-    this.authService.update(this.utenti,false).subscribe().unsubscribe();
+    
+    if(this.subscription)
+    this.subscription.unsubscribe
+
+    if(this.subscription1)
+    this.subscription1.unsubscribe
   }
 
   ngOnInit(): void {
@@ -37,7 +44,7 @@ export class UpdateutentiComponent implements OnInit,OnDestroy {
     });
 
 
-    this.authService.getUser(this.id).subscribe(param=>{
+    this.subscription= this.authService.getUser(this.id).subscribe(param=>{
 
       this.utenti=param;
       return param;
@@ -57,7 +64,7 @@ changePass(newpass:string){
   }
 
     this.utenti.password=newpass;
-    this.authService.update(this.utenti,true).subscribe(param => {return param});
+     this.authService.update(this.utenti,true).subscribe(param => {return param});
     window.alert("password changed");
     this.change=false;
 
@@ -76,7 +83,7 @@ reset(){
 
   save(utente:Utenti){
    
-    this.authService.update(utente,false).subscribe(param => {return param});
+    this.subscription1= this.authService.update(utente,false).subscribe(param => {return param});
     window.alert("user updated");
   }
 

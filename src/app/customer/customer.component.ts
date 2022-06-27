@@ -1,8 +1,9 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnDestroy, OnInit} from '@angular/core';
 import {Product} from "../classes/Product";
 import {Customer} from "../classes/Customer";
 import {ProductService} from "../services/product.service";
 import {ActivatedRoute, Router} from '@angular/router';
+import { Subscription } from 'rxjs';
 
 
 
@@ -11,15 +12,18 @@ import {ActivatedRoute, Router} from '@angular/router';
   templateUrl: './customer.component.html',
   styleUrls: ['./customer.component.css']
 })
-export class CustomerComponent implements OnInit {
+export class CustomerComponent implements OnInit,OnDestroy {
 
   prod!:Product;
   cust!:Customer;
   id!:string;
   show!:boolean;
   customer=new Array<Customer>();
+  subscription!: Subscription
+  subscription1!: Subscription
   serialNumber!:string;
   constructor(private service:ProductService,private route: ActivatedRoute,private router: Router) { }
+
 
   ngOnInit(): void {
     this.prod=new Product('','','',this.customer);
@@ -28,7 +32,7 @@ export class CustomerComponent implements OnInit {
       this.id=params['serialNumber'];
     });
 
-    this.service.getProductById(this.id).subscribe(response => 
+   this.subscription= this.service.getProductById(this.id).subscribe(response => 
       {
         this.prod = response;
 
@@ -59,7 +63,7 @@ export class CustomerComponent implements OnInit {
    }
 
    saveProduct():void{
-      this.service.update(this.prod).subscribe(param => { 
+    this.subscription1 = this.service.update(this.prod).subscribe(param => { 
         if(param){
           window.alert("saved")
         }
@@ -74,4 +78,12 @@ export class CustomerComponent implements OnInit {
   }
 
 }
+
+  ngOnDestroy(): void {
+
+    if(this.subscription1)
+    this.subscription1.unsubscribe()
+    if(this.subscription)
+    this.subscription.unsubscribe()
+  }
 }

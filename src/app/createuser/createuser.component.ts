@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { RequestUser } from '../classes/RequestUser';
 import { Utenti } from '../classes/Utenti';
 import { AuthService } from '../services/auth.service';
@@ -18,12 +19,11 @@ request!:RequestUser;
 utente!:Utenti;
 ruoli!:string;
 validate!:boolean;
+subscription!: Subscription
+
 
   ngOnInit(): void {
-    this.validate=false;
-    this.ruoliSelected =["ADMIN","USER"]
-    this.utente=new Utenti('','','',',',[]);
-    this.request = new RequestUser('','',this.utente)
+
   }
 
   comeBack(){
@@ -47,7 +47,7 @@ console.log(this.request)
 
   ngOnDestroy(): void {
 
-    this.authService.inserisciUser(this.request).subscribe().unsubscribe();
+    this.subscription.unsubscribe()
   }
 
 selectRuoli(ruoliSelected:string[]){

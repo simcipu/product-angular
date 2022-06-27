@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { Utenti } from '../classes/Utenti';
 import { AuthService } from '../services/auth.service';
 
@@ -8,15 +9,23 @@ import { AuthService } from '../services/auth.service';
   templateUrl: './utenti.component.html',
   styleUrls: ['./utenti.component.css']
 })
-export class UtentiComponent implements OnInit,OnDestroy {
+export class UtentiComponent implements OnInit,OnDestroy{
 
   utenti!:Utenti[];
   ute!:Utenti;
-
+  subscription!: Subscription
+  subscription1!: Subscription
   constructor(private authService:AuthService,private router: Router) { }
+  ngOnDestroy(): void {
+   if(this.subscription)
+   this.subscription.unsubscribe
+
+   if(this.subscription1)
+   this.subscription1.unsubscribe
+  }
 
   ngOnInit(): void {
-    this.authService.getUsers().subscribe(response =>{
+this.subscription =this.authService.getUsers().subscribe(response =>{
 
       this.utenti = response;
       let utente = this.authService.loggedUser();
@@ -28,6 +37,7 @@ export class UtentiComponent implements OnInit,OnDestroy {
         this.utenti.forEach(e => {
 
           if(e.id === this.ute.id){
+   
            const index = this.utenti.indexOf(e)
            this.utenti.splice(index,1)
           
@@ -52,7 +62,7 @@ export class UtentiComponent implements OnInit,OnDestroy {
 
   delete(id:string){
     
-      this.authService.deleteUser(id).subscribe(param => {return param});
+      this.subscription1=this.authService.deleteUser(id).subscribe(param => {return param});
       window.location.reload();
     }
 
@@ -67,8 +77,5 @@ export class UtentiComponent implements OnInit,OnDestroy {
 
   }
 
-  ngOnDestroy(): void {
-    this.authService.getUsers().subscribe().unsubscribe();
-  
-  }
+
 }

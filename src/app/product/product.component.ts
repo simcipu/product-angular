@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router} from '@angular/router';
+import { Subscription } from 'rxjs';
 import {Product} from "../classes/Product";
 import {ProductService} from "../services/product.service";
 
@@ -11,25 +12,19 @@ import {ProductService} from "../services/product.service";
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit,OnDestroy {
- product=new Array<Product>();
-
+ product!:Product[]
+ subscription!: Subscription
+ subscription1!: Subscription
   constructor(private service:ProductService,private router: Router) { }
 
 
   ngOnInit(): void {
     
-this.service.getProduct().subscribe(response => 
+this.subscription =this.service.getProduct().subscribe(response => 
   {
-    this.product = response.map(item => 
-    {
-      return new Product( 
-          item.serialNumber,
-          item.type,
-          item.name,
-          item.customer
-      );
-    });
+    this.product = response;
 
+    return response;
   
   });
 
@@ -39,7 +34,7 @@ open(id:string) {
 }
 
 delete(id:string) {
-  this.service.deleteById(id).subscribe(param=> console.log(param));
+  this.subscription1= this.service.deleteById(id).subscribe(param=> {return param});
   window.location.reload();
 }
 
@@ -50,7 +45,10 @@ modifica(id:string){
 }
 
 ngOnDestroy(): void {
-  this.service.getProduct().subscribe().unsubscribe;
 
+  if(this.subscription)
+  this.subscription.unsubscribe;
+  if(this.subscription1)
+  this.subscription1.unsubscribe;
 }
 }

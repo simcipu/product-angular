@@ -3,6 +3,7 @@ import {Product} from "../classes/Product";
 import {ProductService} from "../services/product.service";
 import { Router} from '@angular/router';
 import { Customer } from '../classes/Customer';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -15,18 +16,25 @@ export class NewProductComponent implements OnInit,OnDestroy {
   cust!:Customer;
   prod!:Product;
   dismissible:boolean = false;
+  subscription!: Subscription
+
   constructor(private service:ProductService,private router: Router) { }
+
+  ngOnDestroy(): void {
+    if( this.subscription)
+    this.subscription.unsubscribe();
+  }
   show!:boolean;
   ngOnInit(): void {
   this.prod=new Product('','','',this.customer);
   this.cust=new Customer();
   }
 
-  saveProduct():void{
+  saveProduct(prod:Product):void{
     if(this.cust.name!=''){
       this.prod.customer.push(this.cust);
         }
-    this.service.save(this.prod).subscribe(param => {
+    this.subscription=this.service.save(prod).subscribe(param => {
       if(param){
         window.alert("saved")
       }
@@ -57,9 +65,6 @@ export class NewProductComponent implements OnInit,OnDestroy {
    
   }
 
-  ngOnDestroy(){
-
-    this.service.save(this.prod).subscribe().unsubscribe();
-  }
+ 
 
 }
