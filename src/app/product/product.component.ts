@@ -14,10 +14,7 @@ export class ProductComponent implements OnInit,OnDestroy {
  product=new Array<Product>();
 
   constructor(private service:ProductService,private router: Router) { }
-  ngOnDestroy(): void {
-    this.service.getProduct().subscribe().unsubscribe;
-  
-  }
+
 
   ngOnInit(): void {
     
@@ -52,5 +49,8 @@ modifica(id:string){
 
 }
 
+ngOnDestroy(): void {
+  this.service.getProduct().subscribe().unsubscribe;
 
+}
 }

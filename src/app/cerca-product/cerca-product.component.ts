@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import {Product} from "../classes/Product";
 import {Customer} from "../classes/Customer";
 import { Router} from '@angular/router';
@@ -9,7 +9,7 @@ import {ProductService} from "../services/product.service";
   templateUrl: './cerca-product.component.html',
   styleUrls: ['./cerca-product.component.css']
 })
-export class CercaProductComponent implements OnInit {
+export class CercaProductComponent implements OnInit,OnDestroy {
 
   surname!:string;
   type!:string;
@@ -17,6 +17,10 @@ export class CercaProductComponent implements OnInit {
   
   show!:boolean;
   constructor(private service:ProductService,private router: Router) { }
+  ngOnDestroy(): void {
+    this.service.getForType(this.type).subscribe().unsubscribe()
+    this.service.getForSurname(this.surname).subscribe().unsubscribe()
+  }
 
   ngOnInit(): void {
     this.show=false;
