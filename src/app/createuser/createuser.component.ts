@@ -23,7 +23,8 @@ subscription!: Subscription
 
 
   ngOnInit(): void {
-
+    this.utente=new Utenti("",'','',',',[]);
+this.request = new RequestUser('','',this.utente)
   }
 
   comeBack(){
@@ -47,6 +48,7 @@ console.log(this.request)
 
   ngOnDestroy(): void {
 
+    if(this.subscription)
     this.subscription.unsubscribe()
   }
 

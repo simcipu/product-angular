@@ -34,9 +34,10 @@ export class ErrorInterceptor implements HttpInterceptor {
             this.errors = httpResponse.error;
             const error = err.error?.message || err.statusText;
            
-            console.error(this.errors.errors[0]);
+          
 
-            if (this.errors.errors[0]){
+            if (this.errors.errors){
+            
                 window.alert(this.errors.errors[0])
             }
             return throwError(error);
