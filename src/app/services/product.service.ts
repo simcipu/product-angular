@@ -52,10 +52,10 @@ export class ProductService {
  
     return this.http.get<Product[]>(this.urltype+'/'+type);
   }
-  public getForSurname(surname:string): Observable<Product[]> 
+  public getForSurnameType(surname:string,type:string): Observable<Product[]> 
   {
  
-    return this.http.get<Product[]>(this.urlsurname+'/'+surname);
+    return this.http.get<Product[]>(this.urlsurname+'/'+surname+'/type/'+type);
   }
 
   
